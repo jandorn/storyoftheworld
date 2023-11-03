@@ -11,6 +11,9 @@ export default {
 				'background-accent': '#241F20',
 			}
 		},
+		fontFamily: {
+			'mono': ['Space Mono', 'sans-serif'],
+		},
 	},
 	plugins: [],
 }
