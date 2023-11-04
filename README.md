@@ -13,7 +13,7 @@
 
 ## About
 
-Welcome to [Story of the World](https://storyofthe.world), an open-source project dedicated to making the history of our planet's diverse nations engaging and accessible. This interactive world map is a gateway to exploring the unique stories of every country on earth. By clicking on any country on the map, you are greeted with a popup that presents a well-crafted summary of the nation's history, crafted to be as informative and fun to read.
+Welcome to [Story of the World](https://storyofthe.world), an open-source project dedicated to making the history of our planet's diverse nations engaging and accessible. This interactive world map is a gateway to exploring the unique stories of every country on earth. By clicking on any country on the map, you are greeted with a popup that presents a well-crafted summary of the nation's history, crafted to be informative and fun to read.
 
 The project is a growing repository of narratives with a unique approach: only one country's history is released every week. The website features a countdown timer that indicates when the next country will be released. While upcoming countries' histories are locked, past releases remain accessible, allowing for a cumulative experience of world history at your fingertips.
 
