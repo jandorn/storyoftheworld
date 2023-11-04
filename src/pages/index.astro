@@ -995,6 +995,7 @@
 	import * as d3 from "d3";
 	import { zoom } from "d3-zoom";
 
+	// gsap hover effect
 	function createHoverEffect(element) {
 		const className = element.getAttribute('class');
 		const targets = className ? document.querySelectorAll(`path.${className}`) : [element];
@@ -1016,10 +1017,10 @@
 			target.addEventListener("mouseleave", () => tl.reverse());
 		});
 	}
-
 	document.querySelectorAll('path').forEach(createHoverEffect);
 
-	// Zoom and pan functionality with d3-zoom
+
+	// zoom and pan functionality with d3-zoom
 	document.addEventListener("DOMContentLoaded", function() {
 		const svg = d3.select("#world-map");
     const g = d3.select("#world-map-content");
@@ -1035,16 +1036,15 @@
     }
 	});
 
-	// set viewBox for the world map
-	const borderWidth = 24;
-
+	
+	// dynamically set viewBox for the world map
 	function resizeSvgViewBox() {
+		const borderWidth = 24;
 		const screenWidth = window.innerWidth - 2 * borderWidth;
 		const screenHeight = window.innerHeight - 2 * borderWidth;
 		
 		const svgElement = document.querySelector("#world-map");
 		
-		// Die viewBox so setzen, dass der Inhalt der SVG proportional skaliert und zentriert bleibt
 		svgElement.setAttribute("viewBox", `0 0 ${screenWidth} ${screenHeight}`);
 		svgElement.setAttribute("preserveAspectRatio", "xMidYMid meet");
 	}
