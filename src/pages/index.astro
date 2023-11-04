@@ -999,16 +999,16 @@
 	function createHoverEffect(element) {
 		const className = element.getAttribute('class');
 		const targets = className ? document.querySelectorAll(`path.${className}`) : [element];
-    const tl = gsap.timeline({ paused: true, reversed: true });
+		const tl = gsap.timeline({ paused: true, reversed: true });
 
-    tl.to(element, {
+		tl.to(element, {
 			transformOrigin: "50% 50%",
 			duration: 0.2,
 			ease: "power1.out",
 			fill: "#f38ba3"
-    });
+		});
 
-    targets.forEach(target => {
+		targets.forEach(target => {
 			target.addEventListener("mouseenter", () => {
 				const parent = target.parentNode;
 				parent.appendChild(target);
@@ -1017,40 +1017,54 @@
 			target.addEventListener("mouseleave", () => tl.reverse());
 		});
 	}
+
 	document.querySelectorAll('path').forEach(createHoverEffect);
 
+	// Variables to store the svg and group elements, and the zoom behavior
+	let svg, g, myZoom;
 
-	// zoom and pan functionality with d3-zoom
-	document.addEventListener("DOMContentLoaded", function() {
-		const svg = d3.select("#world-map");
-    const g = d3.select("#world-map-content");
-
-    const myZoom = zoom()
-        .scaleExtent([1, 30])
-        .on("zoom", zoomed);
-
-    svg.call(myZoom);
-
-    function zoomed(event) {
-        g.attr("transform", event.transform);
-    }
-	});
-
-	
 	// dynamically set viewBox for the world map
 	function resizeSvgViewBox() {
 		const borderWidth = 24;
 		const screenWidth = window.innerWidth - 2 * borderWidth;
 		const screenHeight = window.innerHeight - 2 * borderWidth;
-		
-		const svgElement = document.querySelector("#world-map");
-		
-		svgElement.setAttribute("viewBox", `0 0 ${screenWidth} ${screenHeight}`);
-		svgElement.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    
+		svg.attr("viewBox", `0 0 ${screenWidth} ${screenHeight}`)
+		   .attr("preserveAspectRatio", "xMidYMid meet");
+
+		// Calculate the scale and translation needed for the group element
+		const bounds = g.node().getBBox();
+		const scale = Math.min(screenWidth / bounds.width, screenHeight / bounds.height);
+		const translate = [
+			(screenWidth - bounds.width * scale) / 2 - bounds.x * scale,
+			(screenHeight - bounds.height * scale) / 2 - bounds.y * scale
+		];
+
+		g.attr("transform", `translate(${translate}) scale(${scale})`);
+
+		// Update the zoom transform
+		myZoom.transform(svg, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
 	}
-	document.addEventListener("DOMContentLoaded", resizeSvgViewBox);
+
+	// Initialize zoom and pan functionality with d3-zoom after DOM is loaded
+	document.addEventListener("DOMContentLoaded", function() {
+		svg = d3.select("#world-map");
+		g = d3.select("#world-map-content");
+
+		myZoom = zoom()
+			.scaleExtent([1, 30])
+			.on("zoom", function(event) {
+				g.attr("transform", event.transform);
+			});
+
+		svg.call(myZoom);
+		resizeSvgViewBox();  // Call the resize function after initializing the zoom
+	});
+
+	// Re-adjust the SVG when the window is resized
 	window.addEventListener("resize", resizeSvgViewBox);
 </script>
+
 
 <style>
 	.content {
