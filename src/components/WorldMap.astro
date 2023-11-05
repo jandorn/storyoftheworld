@@ -1009,7 +1009,7 @@
 		g = d3.select("#world-map-content");
 
 		myZoom = zoom()
-			.scaleExtent([1, 30])
+			.scaleExtent([0.8, 30])
 			.on("zoom", function(event) {
 				g.attr("transform", event.transform);
 			});
