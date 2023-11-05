@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import WorldMap from "../components/WorldMap.astro";
 import PastCountries from "../components/PastCountries.astro";
 import CountDownTimer from "../components/CountDownTimer.vue"
+import Newsletter from "../components/Newsletter.vue";
 ---
 
 <BaseLayout>
@@ -14,5 +15,8 @@ import CountDownTimer from "../components/CountDownTimer.vue"
 	</div>
 	<div class="flex items-center w-full h-full">
 		<WorldMap />
+	</div>
+	<div class="absolute bottom-[1.5em] left-20">
+		<Newsletter client:load />
 	</div>
 </BaseLayout>
