@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WorldMap from "../components/WorldMap.astro";
 import PastCountries from "../components/PastCountries.astro";
-import CountDownTimer from "../components/CountDownTimer.astro"
+import CountDownTimer from "../components/CountDownTimer.vue"
 ---
 
 <BaseLayout>
@@ -10,10 +10,9 @@ import CountDownTimer from "../components/CountDownTimer.astro"
 		<PastCountries />
 	</div>
 	<div class="absolute top-[1.5em] md:top-0 left-1/2 transform -translate-x-1/2">
-		<CountDownTimer />
+		<CountDownTimer client:load />
 	</div>
 	<div class="flex items-center w-full h-full">
 		<WorldMap />
 	</div>
 </BaseLayout>
-
