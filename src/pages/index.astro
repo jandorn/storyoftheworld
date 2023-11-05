@@ -2,11 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WorldMap from "../components/WorldMap.astro";
 import PastCountries from "../components/PastCountries.astro";
+import CountDownTimer from "../components/CountDownTimer.astro"
 ---
 
 <BaseLayout>
 	<div class="absolute flex items-center w-full whitespace-nowrap justify-end space-x-reverse space-x-1 text-sm top-0 left-0 h-6">
 		<PastCountries />
+	</div>
+	<div class="absolute top-[1.5em] md:top-0 left-1/2 transform -translate-x-1/2">
+		<CountDownTimer />
 	</div>
 	<div class="flex items-center w-full h-full">
 		<WorldMap />
