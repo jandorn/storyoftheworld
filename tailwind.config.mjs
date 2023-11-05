@@ -9,6 +9,7 @@ export default {
 				'accent': '#ED203D',
 				'background': '#0F0D0E',
 				'background-accent': '#241F20',
+				'mypink': '#ED879F',
 			}
 		},
 		fontFamily: {
