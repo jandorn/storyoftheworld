@@ -1,5 +1,5 @@
 <template>
-  <div class="w-40 md:w-80 bg-background-accent text-primary text-center border-x-8 border-b-8 border-secondary rounded-b-3xl">
+  <div class="w-80 bg-background-accent text-primary text-center border-x-8 border-b-8 border-secondary rounded-b-3xl">
     <div>
       Next Country in
     </div>
