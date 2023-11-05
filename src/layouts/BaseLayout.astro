@@ -1,0 +1,22 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link href='https://fonts.googleapis.com/css?family=Space Mono' rel='stylesheet'>
+		<title>Story Of The World</title>
+	</head>
+	<body class="font-mono">
+		<div class="content h-screen bg-background border-[1.5em] border-background-accent">
+			<slot />
+		</div>
+	</body>
+</html>
+
+<style>
+  .content {
+    background-image: linear-gradient(#241f20 0.5px, transparent 0.5px, transparent calc(100% - 0.5px), #241f20 calc(100% - 0.5px)), linear-gradient(90deg, #241f20 0.5px, transparent 0.5px, transparent calc(100% - 0.5px), #241f20 calc(100% - 0.5px));
+    background-size: 30px 30px;
+	}
+</style>
