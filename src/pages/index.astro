@@ -7,16 +7,16 @@ import Newsletter from "../components/Newsletter.vue";
 ---
 
 <BaseLayout>
-	<div class="absolute flex items-center w-full whitespace-nowrap justify-end space-x-reverse space-x-1 text-sm top-0 left-0 h-6">
+	<div class="absolute flex items-center w-full whitespace-nowrap justify-end space-x-reverse space-x-1 text-sm -top-[1.75em] left-0 h-6">
 		<PastCountries />
 	</div>
-	<div class="absolute top-[1.5em] md:top-0 left-1/2 transform -translate-x-1/2">
+	<div class="absolute top-0 md:-top-[1.5em] left-1/2 transform -translate-x-1/2">
 		<CountDownTimer client:load />
 	</div>
 	<div class="flex items-center w-full h-full">
 		<WorldMap />
 	</div>
-	<div class="absolute bottom-[1.5em] left-0 md:left-20">
+	<div class="absolute bottom-0 left-0 md:left-20">
 		<Newsletter client:load />
 	</div>
 </BaseLayout>
