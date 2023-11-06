@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="{ 'h-80 w-full md:w-[30em]': expanded, 'h-10 w-44': !expanded }"
-    class="transition-all duration-300 ease-in-out bg-background-accent text-primary py-2 px-4 justify-between rounded-t-xl"
+    :class="{ 'h-[22em] md:h-80 w-full md:w-[30em] border-x border-t border-primary': expanded, 'h-10 w-44': !expanded }"
+    class="transition-all duration-300 ease-in-out bg-background-accent text-primary py-2 px-4 justify-between rounded-tr-xl md:rounded-t-xl"
   >
     <div class="flex text-accent font-bold text-xl cursor-pointer" @click="toggle">
       <span>Newsletter</span>
