@@ -16,7 +16,7 @@
         Put your email below to get the next one! <br><br>
       </span>
       <input type="text" placeholder="Your email 📩" class="text-background w-full p-2 rounded-md border-2 border-primary focus:outline-secondary">
-      <button class="bg-secondary text-primary rounded-md p-2 mt-3 focus:outline-primary">Subscribe</button>
+      <button class="bg-secondary text-primary rounded-md p-2 mt-3 focus:outline-primary mb-3">Subscribe</button>
     </div>
   </div>
 </template>
