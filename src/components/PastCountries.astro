@@ -1,25 +1,49 @@
-<span class="text-primary text-opacity-20">Cape Verde • </span>
-<span class="text-primary text-opacity-20">Burundi • </span>
-<span class="text-primary text-opacity-20">Malawi • </span>
-<span class="text-primary text-opacity-20">Malte • </span>
-<span class="text-primary text-opacity-20">Angola • </span>
-<span class="text-primary text-opacity-20">Sierra Leone • </span>
-<span class="text-primary text-opacity-20">Mongolia • </span>
-<span class="text-primary text-opacity-20">Fiji • </span>
-<span class="text-primary text-opacity-20">India • </span>
-<span class="text-primary text-opacity-20">Bahamas • </span>
-<span class="text-primary text-opacity-20">Belize • </span>
-<span class="text-primary text-opacity-20">Bolivia • </span>
-<span class="text-primary text-opacity-20">Germany • </span>
-<span class="text-primary text-opacity-20">Mexico • </span>
-<span class="text-primary text-opacity-20">United Arab Emirates • </span>
-<span class="text-primary text-opacity-30">Zambia • </span>
-<span class="text-primary text-opacity-40">Sri Lanka • </span>
-<span class="text-primary text-opacity-50">Philippines • </span>
-<span class="text-primary text-opacity-60">Palau • </span>
-<span class="text-primary text-opacity-70">Suriname • </span>
-<span class="text-primary text-opacity-80">Sweden • </span>
-<span class="text-primary text-opacity-90">Russia • </span>
-<span class="text-primary text-opacity-100">Eritrea • </span>
-<span class="text-accent">Uruguay</span><span class="text-primary"> • </span>
-<span class="text-primary">???</span>
+<div id="scrollable-div" class="no-scrollbar overflow-x-auto">
+  <span class="text-primary text-opacity-20">Cape Verde • </span>
+  <span class="text-primary text-opacity-20">Burundi • </span>
+  <span class="text-primary text-opacity-20">Malawi • </span>
+  <span class="text-primary text-opacity-20">Malte • </span>
+  <span class="text-primary text-opacity-20">Angola • </span>
+  <span class="text-primary text-opacity-20">Sierra Leone • </span>
+  <span class="text-primary text-opacity-20">Mongolia • </span>
+  <span class="text-primary text-opacity-20">Fiji • </span>
+  <span class="text-primary text-opacity-20">India • </span>
+  <span class="text-primary text-opacity-20">Bahamas • </span>
+  <span class="text-primary text-opacity-20">Belize • </span>
+  <span class="text-primary text-opacity-20">Bolivia • </span>
+  <span class="text-primary text-opacity-20">Germany • </span>
+  <span class="text-primary text-opacity-20">Mexico • </span>
+  <span class="text-primary text-opacity-20">United Arab Emirates • </span>
+  <span class="text-primary text-opacity-30">Zambia • </span>
+  <span class="text-primary text-opacity-40">Sri Lanka • </span>
+  <span class="text-primary text-opacity-50">Philippines • </span>
+  <span class="text-primary text-opacity-60">Palau • </span>
+  <span class="text-primary text-opacity-70">Suriname • </span>
+  <span class="text-primary text-opacity-80">Sweden • </span>
+  <span class="text-primary text-opacity-90">Russia • </span>
+  <span class="text-primary text-opacity-100">Eritrea • </span>
+  <span class="text-accent">Uruguay</span><span class="text-primary"> • </span>
+  <span class="text-primary">???</span>
+</div>
+
+<script>
+  // Warten Sie, bis das Dokument geladen ist
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const scrollableDiv = document.getElementById('scrollable-div');
+    // Scrollen Sie bis zum Ende des Elements (von rechts nach links)
+    scrollableDiv.scrollLeft = scrollableDiv.scrollWidth;
+  });
+</script>
+
+<style>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>
