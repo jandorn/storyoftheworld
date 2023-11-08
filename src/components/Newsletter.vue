@@ -28,6 +28,5 @@ const expanded = ref(false);
 
 const toggle = () => {
   expanded.value = !expanded.value;
-  console.log(expanded.value);
 };
 </script>
