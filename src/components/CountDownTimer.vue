@@ -27,7 +27,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 
-const targetTime = ref(Date.now() + 604800000); // one week from now
+// Set the target date and time to 5th December 2023, 18:00 German time
+const targetDate = new Date('2023-12-05T18:00:00+01:00').getTime();
+const targetTime = ref(targetDate);
 const timeLeft = ref({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
 // leading 0 if number is < 10
@@ -43,10 +45,21 @@ const formattedSeconds = computed(() => padNumber(timeLeft.value.seconds));
 const updateTimer = () => {
   const now = Date.now();
   const distance = targetTime.value - now;
-  timeLeft.value.days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  timeLeft.value.hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  timeLeft.value.minutes = Math.floor((distance / (1000 * 60)) % 60);
-  timeLeft.value.seconds = Math.floor((distance / 1000) % 60);
+  
+  if (distance < 0) {
+    // Time is up, stop the timer
+    clearInterval(intervalId);
+    timeLeft.value.days = 0;
+    timeLeft.value.hours = 0;
+    timeLeft.value.minutes = 0;
+    timeLeft.value.seconds = 0;
+  } else {
+    // Update time left
+    timeLeft.value.days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    timeLeft.value.hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    timeLeft.value.minutes = Math.floor((distance / (1000 * 60)) % 60);
+    timeLeft.value.seconds = Math.floor((distance / 1000) % 60);
+  }
 };
 
 let intervalId;
