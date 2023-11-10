@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{'max-h-[23em] sm:max-h-[20em] w-full sm:w-[30em]': expanded, 'max-h-10 w-44': !expanded }"
+    :class="{'max-h-[23em] sm:max-h-[20em] w-full sm:w-[30em]': expanded, 'max-h-14 w-44': !expanded }"
     class="transition-all duration-400 ease-in-out bg-background-accent text-primary py-2 px-4 justify-between rounded-tr-xl md:rounded-t-xl"
   >
     <div class="flex text-accent font-bold text-xl cursor-pointer" @click="toggle">
