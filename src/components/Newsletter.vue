@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{'max-h-[23em] sm:max-h-[20em] w-full sm:w-[30em]': expanded, 'max-h-14 w-44': !expanded }"
-    class="transition-all duration-400 ease-in-out bg-background-accent text-primary py-2 px-4 justify-between rounded-tr-xl md:rounded-t-xl"
+    class="transition-all duration-400 ease-in-out bg-background-accent py-2 px-4 justify-between rounded-tr-xl md:rounded-t-xl"
   >
     <div class="flex text-accent font-bold text-xl cursor-pointer" @click="toggle">
       <span>Newsletter</span>
@@ -16,7 +16,7 @@
         Put your email below to get the next one! <br><br>
       </span>
       <input type="text" placeholder="Your email 📩" class="text-background w-full p-2 rounded-md border-2 border-primary focus:outline-secondary">
-      <button class="bg-secondary text-primary rounded-md p-2 mt-3 focus:outline-primary mb-3">Subscribe</button>
+      <button class="bg-secondary rounded-md p-2 mt-3 focus:outline-primary mb-3">Subscribe</button>
     </div>
   </div>
 </template>

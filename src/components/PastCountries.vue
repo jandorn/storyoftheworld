@@ -3,12 +3,11 @@
     <span v-for="country in countries"
           :key="country"
           :id="country.replace(/\s+/g, '')"
-          class="text-primary"
           @mouseenter="() => $emit('country-hover', country)"
           @mouseleave="() => $emit('country-hover', null)">
       {{ country }} •
     </span>
-    <span class="text-primary">???</span>
+    <span>???</span>
   </div>
 </template>
 
