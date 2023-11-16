@@ -9,7 +9,7 @@ export default {
 				'accent': '#ED203D',
 				'background': '#0F0D0E',
 				'background-accent': '#241F20',
-			}
+			},
 		},
 		fontFamily: {
 			'mono': ['Space Mono', 'sans-serif'],
@@ -18,5 +18,7 @@ export default {
 			screen: ['100vh /* fallback for Opera, IE and etc. */', '100dvh'],
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 }
