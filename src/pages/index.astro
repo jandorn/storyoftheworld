@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import WorldMap from "../components/WorldMap.astro";
+import WorldMap from "../components/WorldMap.vue";
 import PastCountries from "../components/PastCountries.vue";
 import CountDownTimer from "../components/CountDownTimer.vue"
 import Newsletter from "../components/Newsletter.vue";
@@ -11,19 +11,19 @@ import Socials from "../components/Socials.astro";
 	<div class="absolute flex items-center w-full whitespace-nowrap justify-end space-x-reverse space-x-1 sm:text-sm -top-[1.75em] left-0 h-12 sm:h-6">
 		<PastCountries client:load />
 	</div>
-	<div class="absolute top-0 md:-top-[1.5em] left-1/2 transform -translate-x-1/2">
+	<div class="absolute top-0 md:-top-[1.5em] left-1/2 transform -translate-x-1/2 z-20">
 		<CountDownTimer client:load />
 	</div>
 	<div class="hidden md:block absolute uppercase text-xl w-32 text-center top-4 left-4">
 		Story of the World
 	</div>
 	<div class="flex items-center w-full h-full">
-		<WorldMap />
+		<WorldMap client:load />
 	</div>
 	<div class="absolute bottom-0 left-0 md:left-20 z-10">
 		<Newsletter client:load />
 	</div>
-	<div class="absolute flex space-x-3 opacity-30 bottom-0 right-0 m-3">
+	<div class="absolute flex space-x-3 opacity-30 bottom-0 right-0 m-3 z-2">
 		<Socials />
 	</div>
 </BaseLayout>
