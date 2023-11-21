@@ -1,0 +1,11 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex justify-center w-3/4 mx-auto my-8 rounded-xl bg-background-accent">
+    <article class="prose prose-invert prose-img:rounded-lg max-w-none m-8">
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
