@@ -25,7 +25,7 @@ const countryName = ref('');
 
 onMounted(async () => {
   try {
-    const response = await fetch(new URL('../assets/BlankMap-World.svg', import.meta.url).href);
+    const response = await fetch(new URL('../assets/World.svg', import.meta.url).href);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
