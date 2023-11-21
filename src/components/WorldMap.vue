@@ -21,6 +21,8 @@ import { zoom as d3Zoom } from "d3-zoom";
 const svgContent = ref('');
 const svgElement = ref(null);
 
+const currentZoomLevel = ref(1);
+
 const countryName = ref('');
 
 onMounted(async () => {
@@ -44,12 +46,22 @@ const initializeZoom = () => {
 
   svg.attr("viewBox", viewBox.join(' '));
 
+  const onZoom = (event) => {
+    g.attr("transform", event.transform);
+    currentZoomLevel.value = event.transform.k;
+
+    // Adjust the opacity of circles based on zoom level
+    if (currentZoomLevel.value < 3) {
+      g.selectAll("circle").style("display", null);
+    } else {
+      g.selectAll("circle").style("display", "none");
+    }
+  };
+
   const zoom = d3Zoom()
     .scaleExtent([1, 30])
     .translateExtent([[0, 0], [viewBox[2], viewBox[3]]])
-    .on("zoom", (event) => {
-      g.attr("transform", event.transform);
-    });
+    .on("zoom", onZoom);
 
   svg.call(zoom);
 }
