@@ -66,6 +66,18 @@ const initializeZoom = () => {
   svg.call(zoom);
 }
 
+const findTitleInParents = (element) => {
+  let currentElement = element;
+  while (currentElement && currentElement.tagName !== 'svg') {
+    const titleElement = currentElement.querySelector('title');
+    if (titleElement) {
+      return titleElement.textContent;
+    }
+    currentElement = currentElement.parentNode;
+  }
+  return '';
+};
+
 const onHover = (event) => {
   let selector;
   if (event.target.tagName === 'path' || event.target.tagName === 'circle') {
@@ -73,10 +85,10 @@ const onHover = (event) => {
     const pathId = event.target.id;
     if (groupId) {
       selector = `#${groupId} path, #${groupId} circle`;
-      countryName.value = document.querySelector(`#${groupId} > title`)?.textContent || '';
+      countryName.value = findTitleInParents(event.target.parentNode) || '';
     } else if (pathId) {
       selector = `#${pathId}`;
-      countryName.value = document.querySelector(`#${pathId} > title`)?.textContent || '';
+      countryName.value = findTitleInParents(event.target) || '';
     }
 
     if (selector) {
