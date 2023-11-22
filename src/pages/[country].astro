@@ -1,0 +1,19 @@
+---
+import MarkdownLayout from '../layouts/MarkdownLayout.astro';
+
+export async function getStaticPaths() {
+  const countryFiles = await Astro.glob('../content/countries/*.md');
+  return countryFiles.map((file) => {
+    const slug = file.file.split('/').pop().replace('.md', '');
+    return { params: { country: slug }};
+  });
+}
+
+const { country } = Astro.params;
+const countries = await Astro.glob('../content/countries/*.md');
+const [countryContent] = countries.filter(page => page.file.endsWith(`${country}.md`));
+---
+
+<MarkdownLayout>
+  <countryContent.Content />
+</MarkdownLayout>
