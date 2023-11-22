@@ -6,7 +6,8 @@
   </div>
   <svg 
     ref="svgElement" 
-    class="min-h-[calc(100vh-2em)] sm:min-h-[calc(100vh-3em)]" 
+    class="min-h-[calc(100vh-2em)] sm:min-h-[calc(100vh-3em)]"
+    @click="onClick"
     @mouseover="onHover" 
     @mouseout="onLeave">
   </svg>
@@ -123,6 +124,25 @@ const onLeave = (event) => {
         fill: fillColor
       });
     }
+  }
+}
+
+const onClick = (event) => {
+  console.log("click");
+  let country = '';
+  if (event.target.tagName === 'path' || event.target.tagName === 'circle') {
+    const groupId = event.target.parentNode.id;
+    const pathId = event.target.id;
+    if (groupId) {
+      country = findTitleInParents(event.target.parentNode) || '';
+    } else if (pathId) {
+      country = findTitleInParents(event.target) || '';
+    }
+  }
+
+  if (country) {
+    const urlFriendlyCountry = country.replace(/\s+/g, '-').toLowerCase();
+    window.location.href = `/${urlFriendlyCountry}`;
   }
 }
 </script>
