@@ -128,7 +128,6 @@ const onLeave = (event) => {
 }
 
 const onClick = (event) => {
-  console.log("click");
   let country = '';
   if (event.target.tagName === 'path' || event.target.tagName === 'circle') {
     const groupId = event.target.parentNode.id;
